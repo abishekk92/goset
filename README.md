@@ -43,7 +43,7 @@ _To Union two sets_
     }
 ```
 
-To Intersect two sets
+_To Intersect two sets_
 
 ```go
     import (
