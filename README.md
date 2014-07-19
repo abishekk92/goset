@@ -3,13 +3,13 @@ goset
 
 Set implementation for golang
 
-To install goset
+_To install goset_
 
 ```bash
     go get github.com/abishekk92/goset
 ```
 
-To Create a new set
+_To Create a new set_
 
 ```go
     import (
@@ -26,7 +26,7 @@ To Create a new set
 ```
 
 
-To Union two sets
+_To Union two sets_
 
 ```go
     import (
