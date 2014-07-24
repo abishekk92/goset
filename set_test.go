@@ -30,16 +30,15 @@ func TestIsMember(t *testing.T) {
 	}
 }
 
-
 func TestSetUnion(t *testing.T) {
-    A := NewSet()
-    B := NewSet()
-    A.Add("a")
-    A.Add("b")
-    A.Add("c")
-    A.Add("d")
-    B.Add("a")
-    B.Add("b")
+	A := NewSet()
+	B := NewSet()
+	A.Add("a")
+	A.Add("b")
+	A.Add("c")
+	A.Add("d")
+	B.Add("a")
+	B.Add("b")
 	ACard := A.Size()
 	BCard := B.Size()
 	result := A.Union(B)
@@ -50,14 +49,14 @@ func TestSetUnion(t *testing.T) {
 }
 
 func TestSetIntersection(t *testing.T) {
-    A := NewSet()
-    B := NewSet()
-    A.Add("a")
-    A.Add("b")
-    A.Add("c")
-    A.Add("d")
-    B.Add("a")
-    B.Add("b")
+	A := NewSet()
+	B := NewSet()
+	A.Add("a")
+	A.Add("b")
+	A.Add("c")
+	A.Add("d")
+	B.Add("a")
+	B.Add("b")
 	ACard := A.Size()
 	BCard := B.Size()
 	result := A.Intersect(B)

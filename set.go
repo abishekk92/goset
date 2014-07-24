@@ -59,4 +59,3 @@ func (A *Set) Intersect(B *Set) *Set {
 		return B.merge(A)
 	}
 }
-
