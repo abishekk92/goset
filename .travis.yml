@@ -1,0 +1,8 @@
+language: go
+go:
+# Go versions go here, tip references the latest version
+# - 1.6
+ - tip
+
+script:
+ - go test -v ./...
