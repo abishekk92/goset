@@ -1,6 +1,8 @@
 goset
 =====
 
+[![Build Status](https://travis-ci.org/abishekk92/goset.svg?branch=master)](https://travis-ci.org/abishekk92/goset)
+
 Set implementation for golang
 
 _To install goset_
