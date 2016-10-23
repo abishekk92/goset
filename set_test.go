@@ -12,6 +12,15 @@ func TestAddToSet(t *testing.T) {
 	}
 }
 
+func TestMultiAdd(t *testing.T) {
+	setStr := NewSet()
+	result := setStr.Add("foobar", "zigzag", "zipzap")
+	if result != true {
+		t.Error("Expected", true, "but got", result)
+	}
+
+}
+
 func TestSizeofSet(t *testing.T) {
 	setStr := NewSet()
 	setStr.Add("foobar")

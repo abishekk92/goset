@@ -20,8 +20,7 @@ _To Create a new set_
 
     func main() {
         newSet := goset.NewSet() //Creates a new set
-        newSet.Add("a") //Adds a new element to the set
-        newSet.Add("b")
+        newSet.Add("a", "b") //Adds a new element to the set
         newSet.del("b") //Rmeoves an element from the set
         newSet.isMember("a") //Checks if 'a' is a member of the set
     }
@@ -38,8 +37,7 @@ _To Union two sets_
     func main() {
         A := goset.NewSet()
         B := goset.NewSet()
-        A.add("a")
-        A.add("b")
+        A.add("a", "b")
         B.add("a")
         uninonSet := A.Union(B)
     }
@@ -55,8 +53,7 @@ _To Intersect two sets_
     func main() {
         A := goset.NewSet()
         B := goset.NewSet()
-        A.add("a")
-        A.add("b")
+        A.add("a", "b")
         B.add("a")
         intersectionSet := A.Intersect(B)
     }

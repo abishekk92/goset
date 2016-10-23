@@ -8,10 +8,11 @@ func NewSet() *Set {
 	return &Set{make(map[interface{}]bool)}
 }
 
-func (set *Set) Add(i interface{}) bool {
-	_, exists := set.set[i]
-	set.set[i] = true
-	return !exists
+func (set *Set) Add(items ...interface{}) bool {
+	for _, item := range items {
+		set.set[item] = true
+	}
+	return true
 }
 
 func (set *Set) Size() int {
