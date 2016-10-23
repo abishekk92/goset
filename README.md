@@ -37,8 +37,8 @@ _To Union two sets_
     func main() {
         A := goset.NewSet()
         B := goset.NewSet()
-        A.add("a", "b")
-        B.add("a")
+        A.Add("a", "b")
+        B.Add("a")
         uninonSet := A.Union(B)
     }
 ```
@@ -53,8 +53,8 @@ _To Intersect two sets_
     func main() {
         A := goset.NewSet()
         B := goset.NewSet()
-        A.add("a", "b")
-        B.add("a")
+        A.Add("a", "b")
+        B.Add("a")
         intersectionSet := A.Intersect(B)
     }
 ```
