@@ -1,7 +1,7 @@
 goset
 =====
 
-[![Build Status](https://travis-ci.org/abishekk92/goset.svg?branch=master)](https://travis-ci.org/abishekk92/goset) [![GoDoc](https://godoc.org/github.com/abishekk92/goset?status.svg)] (https://godoc.org/github.com/abishekk92/goset)[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
+[![Build Status](https://travis-ci.org/abishekk92/goset.svg?branch=master)](https://travis-ci.org/abishekk92/goset) [![GoDoc](https://godoc.org/github.com/abishekk92/goset?status.svg)](https://godoc.org/github.com/abishekk92/goset) [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
 Set implementation for golang
 
