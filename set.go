@@ -19,12 +19,12 @@ func (set *Set) Size() int {
 	return len(set.set)
 }
 
-func (set *Set) isMember(i interface{}) bool {
+func (set *Set) IsMember(i interface{}) bool {
 	_, exists := set.set[i]
 	return exists
 }
 
-func (set *Set) del(i interface{}) {
+func (set *Set) Del(i interface{}) {
 	delete(set.set, i)
 }
 
@@ -44,7 +44,7 @@ func (A *Set) Union(B *Set) *Set {
 func (A *Set) merge(B *Set) *Set {
 	newSet := NewSet()
 	for key, _ := range B.set {
-		if A.isMember(key) {
+		if A.IsMember(key) {
 			newSet.Add(key)
 		}
 	}
