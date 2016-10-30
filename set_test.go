@@ -43,8 +43,7 @@ func TestIsMember(t *testing.T) {
 
 func TestDel(t *testing.T) {
 	setStr := goset.NewSet()
-	setStr.Add("foo")
-	setStr.Add("bar")
+	setStr.Add("foo", "bar")
 	setStr.Del("foo")
 	result := setStr.IsMember("foo")
 	if result != false {
@@ -59,12 +58,8 @@ func TestDel(t *testing.T) {
 func TestSetUnion(t *testing.T) {
 	A := goset.NewSet()
 	B := goset.NewSet()
-	A.Add("a")
-	A.Add("b")
-	A.Add("c")
-	A.Add("d")
-	B.Add("a")
-	B.Add("b")
+	A.Add("a", "b", "c", "d")
+	B.Add("a", "b")
 	ACard := A.Size()
 	BCard := B.Size()
 	result := A.Union(B)
@@ -77,12 +72,8 @@ func TestSetUnion(t *testing.T) {
 func TestSetIntersection(t *testing.T) {
 	A := goset.NewSet()
 	B := goset.NewSet()
-	A.Add("a")
-	A.Add("b")
-	A.Add("c")
-	A.Add("d")
-	B.Add("a")
-	B.Add("b")
+	A.Add("a", "b", "c", "d")
+	B.Add("a", "b")
 	ACard := A.Size()
 	BCard := B.Size()
 	result := A.Intersect(B)
