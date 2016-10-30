@@ -8,7 +8,8 @@ import (
 
 func TestAddToSet(t *testing.T) {
 	setStr := goset.NewSet()
-	result := setStr.Add("foobar")
+	setStr.Add("foobar")
+	result := setStr.IsMember("foobar")
 	if result != true {
 		t.Error("Expected", true, "but got", result)
 	}
@@ -16,11 +17,14 @@ func TestAddToSet(t *testing.T) {
 
 func TestMultiAdd(t *testing.T) {
 	setStr := goset.NewSet()
-	result := setStr.Add("foobar", "zigzag", "zipzap")
-	if result != true {
-		t.Error("Expected", true, "but got", result)
+	items := []interface{}{"foobar", "zigzag", "zipzap"}
+	setStr.Add(items...)
+	for _, item := range items {
+		result := setStr.IsMember(item)
+		if result != true {
+			t.Error("Expected", true, "but got", result)
+		}
 	}
-
 }
 
 func TestSizeofSet(t *testing.T) {
