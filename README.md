@@ -58,3 +58,17 @@ _To Intersect two sets_
         intersectionSet := A.Intersect(B)
     }
 ```
+
+_To get an array of elements_
+
+```go
+    import (
+        "github.com/abishekk92/goset"
+        )
+
+    func main() {
+        A := goset.NewSet()
+        A.Add("a", "b")
+        items := A.ToArray()
+    }
+```

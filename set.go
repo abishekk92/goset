@@ -59,3 +59,13 @@ func (A *Set) Intersect(B *Set) *Set {
 		return B.merge(A)
 	}
 }
+
+func (A *Set) ToArray() []interface{} {
+	keys := make([]interface{}, A.Size())
+	index := 0
+	for key, _ := range A.set {
+		keys[index] = key
+		index++
+	}
+	return keys
+}

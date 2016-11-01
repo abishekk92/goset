@@ -1,9 +1,8 @@
 package goset_test
 
 import (
-	"testing"
-
 	"github.com/abishekk92/goset"
+	"testing"
 )
 
 func TestAddToSet(t *testing.T) {
@@ -84,5 +83,23 @@ func TestSetIntersection(t *testing.T) {
 	resultSize := result.Size()
 	if resultSize < BCard || resultSize > ACard-BCard {
 		t.Error("The Union of Set A and B has been compromised")
+	}
+}
+
+func TestSetToArray(t *testing.T) {
+	A := goset.NewSet()
+	items := []interface{}{"foobar", "zigzag", "zipzap"}
+	A.Add(items...)
+	keysArray := A.ToArray()
+	if len(keysArray) != A.Size() {
+		t.Error("Information seems to have been lost while converting to array")
+	}
+	if len(keysArray) != len(items) {
+		t.Error("Information seems to have been lost while converting to array")
+	}
+	for i := 0; i < len(keysArray); i++ {
+		if keysArray[i] == nil {
+			t.Error("Information seems to have been lost while converting to array")
+		}
 	}
 }
