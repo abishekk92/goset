@@ -51,9 +51,7 @@ func (A *Set) merge(B *Set) *Set {
 }
 
 func (A *Set) Intersect(B *Set) *Set {
-	ACard := A.Size()
-	BCard := B.Size()
-	if ACard > BCard {
+	if A.Size() > B.Size() {
 		return A.merge(B)
 	} else {
 		return B.merge(A)
