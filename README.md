@@ -21,7 +21,7 @@ _To Create a new set_
     func main() {
         newSet := goset.NewSet() //Creates a new set
         newSet.Add("a", "b") //Adds a new element to the set
-        newSet.Del("b") //Removes an element from the set
+        newSet.Remove("b") //Removes an element from the set
         newSet.IsMember("a") //Checks if 'a' is a member of the set
     }
 ```
