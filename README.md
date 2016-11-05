@@ -72,3 +72,19 @@ _To get an array of elements_
         items := A.ToArray()
     }
 ```
+
+_To find set difference_
+
+```go
+    import (
+        "github.com/abishekk92/goset"
+        )
+
+    func main() {
+        A := goset.NewSet()
+        A.Add("a", "b", "c", "d")
+        B := goset.NewSet()
+        B.Add("a", "b")
+        C := A.Difference(B) // result would be C{"c", "d"}
+    }
+```

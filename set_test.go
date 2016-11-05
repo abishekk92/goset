@@ -1,8 +1,9 @@
 package goset_test
 
 import (
-	"github.com/abishekk92/goset"
 	"testing"
+
+	"github.com/abishekk92/goset"
 )
 
 func TestAddToSet(t *testing.T) {
@@ -101,5 +102,19 @@ func TestSetToArray(t *testing.T) {
 		if keysArray[i] == nil {
 			t.Error("Information seems to have been lost while converting to array")
 		}
+	}
+}
+
+func TestSetDifference(t *testing.T) {
+	A := goset.NewSet()
+	B := goset.NewSet()
+	A.Add("a", "b", "c", "d")
+	B.Add("a", "b")
+	C := A.Difference(B)
+	if C.Size() != 2 {
+		t.Error("Expected difference to have 2 elements")
+	}
+	if !(C.IsMember("c") && C.IsMember("d")) {
+		t.Error("Expected the result to contain elements 'c' and 'd'")
 	}
 }

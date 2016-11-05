@@ -67,3 +67,13 @@ func (A *Set) ToArray() []interface{} {
 	}
 	return keys
 }
+
+func (A *Set) Difference(B *Set) *Set {
+	newSet := NewSet()
+	for key, _ := range A.set {
+		if B.IsMember(key) != true {
+			newSet.Add(key)
+		}
+	}
+	return newSet
+}
