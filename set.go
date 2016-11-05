@@ -23,7 +23,7 @@ func (set *Set) IsMember(i interface{}) bool {
 	return exists
 }
 
-func (set *Set) Del(i interface{}) {
+func (set *Set) Remove(i interface{}) {
 	delete(set.set, i)
 }
 

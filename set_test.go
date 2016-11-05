@@ -45,10 +45,10 @@ func TestIsMember(t *testing.T) {
 	}
 }
 
-func TestDel(t *testing.T) {
+func TestRemove(t *testing.T) {
 	setStr := goset.NewSet()
 	setStr.Add("foo", "bar")
-	setStr.Del("foo")
+	setStr.Remove("foo")
 	result := setStr.IsMember("foo")
 	if result != false {
 		t.Error("Expected", false, "but got", result)
