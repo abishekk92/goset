@@ -83,7 +83,21 @@ func TestSetIntersection(t *testing.T) {
 	result := A.Intersect(B)
 	resultSize := result.Size()
 	if resultSize < BCard || resultSize > ACard-BCard {
-		t.Error("The Union of Set A and B has been compromised")
+		t.Error("The Intersection of Set A and B has been compromised")
+	}
+}
+
+func TestSetIntersection2(t *testing.T) {
+	A := goset.NewSet(false)
+	B := goset.NewSet(false)
+	A.Add("a", "b")
+	B.Add("a", "b", "c", "d")
+	ACard := A.Size()
+	BCard := B.Size()
+	result := A.Intersect(B)
+	resultSize := result.Size()
+	if resultSize < ACard || resultSize > BCard-ACard {
+		t.Error("The Intersection of Set A and B has been compromised")
 	}
 }
 
@@ -197,6 +211,20 @@ func TestSyncSetIntersection(t *testing.T) {
 	resultSize := result.Size()
 	if resultSize < BCard || resultSize > ACard-BCard {
 		t.Error("The Union of Set A and B has been compromised")
+	}
+}
+
+func TestSyncSetIntersection2(t *testing.T) {
+	A := goset.NewSet(true)
+	B := goset.NewSet(true)
+	A.Add("a", "b")
+	B.Add("a", "b", "c", "d")
+	ACard := A.Size()
+	BCard := B.Size()
+	result := A.Intersect(B)
+	resultSize := result.Size()
+	if resultSize < ACard || resultSize > BCard-ACard {
+		t.Error("The Intersection of Set A and B has been compromised")
 	}
 }
 
