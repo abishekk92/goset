@@ -29,11 +29,11 @@ func (set *Set) Remove(i interface{}) {
 
 func (A *Set) Union(B *Set) *Set {
 	newSet := NewSet()
-	for key, _ := range A.set {
+	for key := range A.set {
 		newSet.Add(key)
 	}
 
-	for key, _ := range B.set {
+	for key := range B.set {
 		newSet.Add(key)
 	}
 
@@ -42,7 +42,7 @@ func (A *Set) Union(B *Set) *Set {
 
 func (A *Set) merge(B *Set) *Set {
 	newSet := NewSet()
-	for key, _ := range B.set {
+	for key := range B.set {
 		if A.IsMember(key) {
 			newSet.Add(key)
 		}
@@ -61,7 +61,7 @@ func (A *Set) Intersect(B *Set) *Set {
 func (A *Set) ToArray() []interface{} {
 	keys := make([]interface{}, A.Size())
 	index := 0
-	for key, _ := range A.set {
+	for key := range A.set {
 		keys[index] = key
 		index++
 	}
@@ -70,7 +70,7 @@ func (A *Set) ToArray() []interface{} {
 
 func (A *Set) Difference(B *Set) *Set {
 	newSet := NewSet()
-	for key, _ := range A.set {
+	for key := range A.set {
 		if B.IsMember(key) != true {
 			newSet.Add(key)
 		}
