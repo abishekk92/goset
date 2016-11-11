@@ -4,16 +4,20 @@ import (
 	"sync"
 )
 
+//Struct to hold set
 type Set struct {
 	set  map[interface{}]bool
 	sync bool
 	sync.RWMutex
 }
 
+//Construct NewSet.
+//Set sync = true to use a threadsafe version.
 func NewSet(sync bool) *Set {
 	return &Set{set: make(map[interface{}]bool), sync: sync}
 }
 
+//Add elements to the set.
 func (set *Set) Add(items ...interface{}) {
 	if set.sync {
 		set.Lock()
@@ -24,6 +28,7 @@ func (set *Set) Add(items ...interface{}) {
 	}
 }
 
+//Number of unique elements in a set.
 func (set *Set) Size() int {
 	if set.sync {
 		set.Lock()
@@ -32,6 +37,7 @@ func (set *Set) Size() int {
 	return len(set.set)
 }
 
+//Check if an element is a member of the set.
 func (set *Set) IsMember(i interface{}) bool {
 	if set.sync {
 		set.Lock()
@@ -44,6 +50,7 @@ func (set *Set) IsMember(i interface{}) bool {
 	}
 }
 
+//Remove an element from the set.
 func (set *Set) Remove(i interface{}) {
 	if set.sync {
 		set.Lock()
@@ -54,6 +61,7 @@ func (set *Set) Remove(i interface{}) {
 	}
 }
 
+//Union two sets.
 func (A *Set) Union(B *Set) *Set {
 	newSet := NewSet(A.sync)
 	for key := range A.set {
@@ -66,6 +74,7 @@ func (A *Set) Union(B *Set) *Set {
 	return newSet
 }
 
+//Intersect two sets. (Private wrapper)
 func (A *Set) intersect(B *Set) *Set {
 	newSet := NewSet(A.sync)
 	for key := range B.set {
@@ -76,6 +85,7 @@ func (A *Set) intersect(B *Set) *Set {
 	return newSet
 }
 
+//Intersect two sets.
 func (A *Set) Intersect(B *Set) *Set {
 	if A.Size() > B.Size() {
 		return A.intersect(B)
@@ -84,6 +94,7 @@ func (A *Set) Intersect(B *Set) *Set {
 	}
 }
 
+//Export elements of a set as an array.
 func (A *Set) ToArray() []interface{} {
 	keys := make([]interface{}, A.Size())
 	index := 0
@@ -98,6 +109,7 @@ func (A *Set) ToArray() []interface{} {
 	return keys
 }
 
+//Set difference between two given sets. i.e Elements in A and are not in B.
 func (A *Set) Difference(B *Set) *Set {
 	newSet := NewSet(A.sync)
 	for key := range A.set {
