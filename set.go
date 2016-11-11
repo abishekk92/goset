@@ -66,7 +66,7 @@ func (A *Set) Union(B *Set) *Set {
 	return newSet
 }
 
-func (A *Set) merge(B *Set) *Set {
+func (A *Set) intersect(B *Set) *Set {
 	newSet := NewSet(A.sync)
 	for key := range B.set {
 		if A.IsMember(key) {
@@ -78,9 +78,9 @@ func (A *Set) merge(B *Set) *Set {
 
 func (A *Set) Intersect(B *Set) *Set {
 	if A.Size() > B.Size() {
-		return A.merge(B)
+		return A.intersect(B)
 	} else {
-		return B.merge(A)
+		return B.intersect(A)
 	}
 }
 
